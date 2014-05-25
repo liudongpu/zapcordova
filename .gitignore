@@ -25,6 +25,7 @@ proguard/
 
 ant-build
 ant-gen
+*.map
 
 
 
