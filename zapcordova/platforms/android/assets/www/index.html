@@ -30,20 +30,15 @@
         <div class="app">
             <h1>Apache Cordova2</h1>
             <div id="deviceready" class="blink">
-            	<div data-role="page" id="camera">
-  <div data-role="header">
-    <a data-role="button" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
-    <h1>Camera</h1> 
-  </div>
-  <div data-role="content">
-      <a href="#" data-role="button" id="capturePhoto">Capture Photo</a><br>
-      <img style="display:none;" id="smallImage" src="" /><p id="smTitle"></p>
-      <a href="#" data-role="button" id="browsePhoto">Browse Photo Album</a><br>
-      <img style="display:none;" id="largeImage" src="" /><p id="lgTitle"></p>
-  </div>
+            	
             	
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received"><a href="test.html">test</a> is R<a href="android.html">android</a></p>
+                
+                <p ><a href="test_photo.html">camora</a></p>
+                 <p ><a href="http://192.168.0.215:8080/mobile/index">0-215-yinfo</a></p>
+                  <p ><a href="http://web.yinxl.com/mobile/index">web-yinfo</a></p>
+                
                	
             </div>
         </div>
@@ -52,61 +47,6 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-        
-        <script src="libs/jquery/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript">
-    var pictureSource;
-    var destinationType; //
 
-    document.addEventListener('deviceready', onDeviceReady, false);
-    function onDeviceReady() {
-      pictureSource = navigator.camera.PictureSourceType;
-      destinationType = navigator.camera.DestinationType;
-
-      $("#capturePhoto").on("click", capturePhoto);
-      $("#browsePhoto").on("click", browsePhoto);
-    }
-
-    function capturePhoto() {
-      alert("capturePhoto");
-
-      if (!navigator.camera) {
-          alert("Camera API not supported", "Error");
-          return;
-      }
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, 
-          { quality: 50, 
-            allowEdit: true, 
-            destinationType: destinationType.DATA_URL });
-    }
-
-    function browsePhoto() {
-      alert("browsePhoto");
-
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, 
-          { quality: 50,
-            destinationType: destinationType.FILE_URI,
-            sourceType: pictureSource.PHOTOLIBRARY });
-    }
-    //sourceType 0:Photo Library, 1=Camera, 2=Saved Album
-    //encodingType 0=JPG 1=PNG
-
-    function onFail(message) {
-      alert('Response: ' + message);
-    }
-
-    function onPhotoDataSuccess(imageData) {
-      var smallImage = document.getElementById('smallImage');
-      smallImage.style.display = 'block';
-      smallImage.src = "data:image/jpeg;base64," + imageData;
-    }
-
-    function onPhotoURISuccess(imageURI) {
-      var largeImage = document.getElementById('largeImage');
-      largeImage.style.display = 'block';
-      largeImage.src = imageURI;
-    }
-  </script>
-        
     </body>
 </html>
